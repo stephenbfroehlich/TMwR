@@ -66,3 +66,11 @@ is_new_version <- function(x, path) {
   !isTRUE(res)
 }
 
+if(grepl("(MKL|OpenBLAS|GotoBLAS|ACML)",
+         paste(sessionInfo()$BLAS,sessionInfo()$LAPACK),
+         ignore.case = TRUE)) {
+  #tune_grid takes 10 threads ... make sure that any multithreaded BLAS replacements are not stepping on top of each other (context switching is bad)
+  library(RhpcBLASctl)
+  omp_set_num_threads(1)
+  blas_set_num_threads(1)
+}
