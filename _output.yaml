@@ -1,13 +1,13 @@
 bookdown::gitbook:
   css: [style.css, TMwR.css]
-  dev: svg
+  dev: svglite
   config:
     toc:
       collapse: section
       before: |
         <li><strong><a href="./">Tidy Modeling with R</a></strong></li>
     edit:
-      link: https://github.com/tidymodels/TMwR/edit/master/%s
+      link: https://github.com/tidymodels/TMwR/edit/main/%s
       text: "Edit"
     fontsettings: null  
     sharing: no
